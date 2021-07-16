@@ -3,7 +3,9 @@ pipeline {
   agent {
     label 'Slave_Induccion'
   }
-
+environment {
+        PROJECT_PATH_BACK = './microservicio/'
+  }
   //Opciones específicas de Pipeline dentro del Pipeline
   options {
     	buildDiscarder(logRotator(numToKeepStr: '3'))
@@ -48,10 +50,8 @@ pipeline {
 
 	stage('Compile & Unit Tests') {
 		steps{
-			sh './gradlew clean'
-			echo "------------>compile & Unit Tests<------------"
-			sh 'chmod +x gradlew'
-			sh './gradlew --b ./microservicio/build.gradle test'
+			dir("${PROJECT_PATH_BACK}"){
+			sh 'gradle --stacktrace test'
 		}
 	}
 
@@ -65,16 +65,17 @@ pipeline {
 	     }
 	}
 
-
-	stage('Build') {
-		steps{
+stage('Build') {
+      steps {
+		        dir("${PROJECT_PATH_BACK}")
+            {
 			echo "------------>Build<------------"
 			//Construir sin tarea test que se ejecutó previamente
-			sh './gradlew --b ./microservicio/build.gradle build -x test'
-		}
-	}
+              sh 'gradle build -x test'
+            }
 
-  }
+      }
+    }
 
   post {
     always {
