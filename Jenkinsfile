@@ -45,13 +45,13 @@ pipeline {
 		}
 	}
 
-    
+
 	stage('Compile & Unit Tests') {
 		steps{
-			sh 'gradle --b ./microservicio/build.gradle clean'
-
-		echo "------------>Unit Test<------------"
-		sh 'gradle --b ./microservicio/build.gradle test
+			sh './microservicio/gradlew clean'
+			echo "------------>compile & Unit Tests<------------"
+			sh 'chmod +x gradlew'
+			sh './microservicio/gradlew --b ./microservicio/build.gradle test'
 		}
 	}
 
@@ -70,10 +70,10 @@ pipeline {
 		steps{
 			echo "------------>Build<------------"
 			//Construir sin tarea test que se ejecutó previamente
-			sh 'gradle --b ./microservicio/build.gradle build -x test'
+			sh './microservicio/gradlew --b ./microservicio/build.gradle build -x test'
 		}
 	}
- 
+
   }
 
   post {
@@ -88,7 +88,7 @@ pipeline {
     failure {
 		echo 'This will run only if failed'
 		mail (to: 'daniel.cossio@ceiba.com.co',subject: "Failed Pipeline:${currentBuild.fullDisplayName}",body: "Something is wrong with ${env.BUILD_URL}")
-		
+
 	}
 
     unstable {
