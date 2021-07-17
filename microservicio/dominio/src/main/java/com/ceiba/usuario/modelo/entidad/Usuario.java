@@ -34,5 +34,8 @@ public class Usuario {
         this.clave = clave;
         this.fechaCreacion = fechaCreacion;
     }
+    
+    
+    
 
 }
