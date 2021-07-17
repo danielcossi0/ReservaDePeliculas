@@ -37,5 +37,17 @@ public class ConsultaControladorUsuarioTest {
                 .andExpect(jsonPath("$[0].nombre", is("test")));
     }
 
+    
+    public void listarReservas() {
+    	// arrange
+
+        // act - assert
+    }
+    
+    public void listarReservasPorCedula() {
+    	// arrange
+
+        // act - assert
+    }
 
 }
