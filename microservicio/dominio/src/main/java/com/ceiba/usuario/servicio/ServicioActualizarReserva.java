@@ -6,7 +6,7 @@ import com.ceiba.usuario.puerto.repositorio.RepositorioReserva;
 
 public class ServicioActualizarReserva {
 
-    private static final String EL_USUARIO_NO_EXISTE_EN_EL_SISTEMA = "El usuario no existe en el sistema";
+    private static final String LA_RESERVA_NO_EXISTE_EN_EL_SISTEMA = "La reserva no existe en el sistema";
 
     private final RepositorioReserva repositorioReserva;
 
@@ -20,9 +20,9 @@ public class ServicioActualizarReserva {
     }
 
     private void validarExistenciaPrevia(Reserva reserva) {
-        boolean existe = this.repositorioReserva.existeExcluyendoId(reserva.getIdReserva(),reserva.getCedulaCliente());
+        boolean existe = this.repositorioReserva.existe(reserva.getIdReserva().intValue());
         if(!existe) {
-            throw new ExcepcionSinDatos(EL_USUARIO_NO_EXISTE_EN_EL_SISTEMA);
+            throw new ExcepcionSinDatos(LA_RESERVA_NO_EXISTE_EN_EL_SISTEMA);
         }
     }
 }

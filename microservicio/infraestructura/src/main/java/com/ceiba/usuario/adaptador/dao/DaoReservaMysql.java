@@ -6,6 +6,7 @@ import com.ceiba.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
 import com.ceiba.infraestructura.jdbc.sqlstatement.SqlStatement;
 import com.ceiba.usuario.puerto.dao.DaoReserva;
 
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Component;
 
 import com.ceiba.usuario.modelo.dto.DtoReserva;
@@ -32,6 +33,11 @@ public class DaoReservaMysql implements DaoReserva {
 
 	@Override
 	public List<DtoReserva> listarPorCedula(String cedulaCliente) {
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListarPorCedula, new MapeoReserva());
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		paramSource.addValue("cedulaCliente", cedulaCliente);
+
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListarPorCedula, paramSource, new MapeoReserva());       
+ 
+        
 	}
 }

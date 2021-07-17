@@ -52,9 +52,9 @@ public class RepositorioReservaMysql implements RepositorioReserva {
 	}
 
 	@Override
-	public boolean existe(String cedula) {
+	public boolean existe(int idReserva) {
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
-		paramSource.addValue("cedulaCliente", cedula);
+		paramSource.addValue("idReserva", idReserva);
 
 		return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste,
 				paramSource, Boolean.class);
@@ -78,9 +78,9 @@ public class RepositorioReservaMysql implements RepositorioReserva {
 	
 
 	@Override
-	public int cantidadDeReservas(String cedula) {
+	public int cantidadDeReservas(String cedulaCliente) {
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
-		paramSource.addValue("cedulaCliente", cedula);
+		paramSource.addValue("cedulaCliente", cedulaCliente);
 
 		return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlcantidadDeReservas,
 				paramSource, int.class);

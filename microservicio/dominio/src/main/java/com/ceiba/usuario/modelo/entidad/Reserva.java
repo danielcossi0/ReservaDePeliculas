@@ -12,9 +12,9 @@ import static com.ceiba.dominio.ValidadorArgumento.validarMenor;;
 public class Reserva {
 
     private static final String DEBE_INGRESAR_LA_CEDULA_DEL_CLIENTE = "Se debe ingresar la cedula del cliente";
-    private static final String DEBE_INGRESAR_EL_NOMBRE_DE_LA_PELICULA = "Se debe ingresar la cedula del cliente";
-    private static final String DEBE_INGRESAR_LOS_DIAS_DE_RESERVA = "Se debe ingresar la cedula del cliente";
-    private static final String LA_RESERVA_DEBE_SER_MENOR_A_5_DIAS = "Se debe ingresar la cedula del cliente";
+    private static final String DEBE_INGRESAR_EL_NOMBRE_DE_LA_PELICULA = "Debe ingresar el nombre de la pelicula";
+    private static final String DEBE_INGRESAR_LOS_DIAS_DE_RESERVA = "Debe ingresar los dias de la reserva";
+    private static final String LA_RESERVA_DEBE_SER_MENOR_A_5_DIAS = "Los dias de reserva deben ser menores a 5";
     
     private static final int DIAS_MAXIMOS_DE_RESERVA= 5;
     

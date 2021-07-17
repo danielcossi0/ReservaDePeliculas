@@ -1,1 +1,1 @@
-select count(1) from reserva where cedulaCliente = :cedulaCliente
+select count(1) from reserva where idReserva = :idReserva

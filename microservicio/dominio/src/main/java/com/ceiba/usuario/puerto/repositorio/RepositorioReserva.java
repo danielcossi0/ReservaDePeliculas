@@ -26,12 +26,12 @@ public interface RepositorioReserva {
 	void eliminar(Long idReserva);
 
 	/**
-	 * Permite validar si existe una reserva con una cedula
+	 * Permite validar si existe una reserva
 	 * 
-	 * @param cedula
+	 * @param idReserva
 	 * @return si existe o no
 	 */
-	boolean existe(String cedula);
+	boolean existe(int idReserva);
 
 	/**
 	 * Permite validar si existe una reserva con una cedula excluyendo un id
@@ -49,5 +49,6 @@ public interface RepositorioReserva {
 	 * @return numero de reservas
 	 */
 	int cantidadDeReservas(String cedula);
+
 
 }
