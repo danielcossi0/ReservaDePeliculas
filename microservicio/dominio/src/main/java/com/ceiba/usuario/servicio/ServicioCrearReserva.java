@@ -22,9 +22,8 @@ public class ServicioCrearReserva {
     }
 
     private void validarLimiteReservas(Reserva reserva) {
-        boolean existe = this.repositorioReserva.puedeReservar(reserva.getCedulaCliente());
         int cantidad = repositorioReserva.cantidadDeReservas(reserva.getCedulaCliente());
-        if(existe && cantidad>CANTIDAD_MAXIMA_DE_RESERVAS_POR_CLIENTE) {
+        if(cantidad>=CANTIDAD_MAXIMA_DE_RESERVAS_POR_CLIENTE) {
             throw new ValidaLimiteReservas(EL_USUARIO_YA_TIENE_TRES_RESERVAS_PENDIENTES_SIN_ENTREGAR);
         }
     }

@@ -41,13 +41,6 @@ public interface RepositorioReserva {
 	 */
 	boolean existeExcluyendoId(Long idReserva, String cedula);
 
-	/**
-	 * Permite validar si existen 3 reservas de un cliente
-	 * 
-	 * @param cedula
-	 * @return si puede o no reservar
-	 */
-	boolean puedeReservar(String cedula);
 	
 	/**
 	 * Permite contar cuantas reservas tiene un usuario

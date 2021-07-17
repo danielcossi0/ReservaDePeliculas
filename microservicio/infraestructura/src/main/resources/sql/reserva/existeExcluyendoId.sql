@@ -1,1 +1,1 @@
-select count(1) from usuario where id <> :id and nombre = :nombre
+select count(1) from reserva where idReserva <> :idReserva and cedulaCliente = :cedulaCliente

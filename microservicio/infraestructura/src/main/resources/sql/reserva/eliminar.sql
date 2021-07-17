@@ -1,3 +1,3 @@
 delete 
-from usuario
-where id = :id
+from reserva
+where idReserva = :idReserva

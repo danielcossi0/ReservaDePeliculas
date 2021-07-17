@@ -1,5 +1,8 @@
-update usuario
-set nombre = :nombre,
-	clave = :clave,
-	fecha_creacion = :fechaCreacion
-where id = :id
+update reserva
+set  cedulaCliente =:cedulaCliente,
+ nombreDeLaPelicula =:nombreDeLaPelicula,
+ fechaDeReserva =:fechaDeReserva,
+ diasDeReserva =:diasDeReserva,
+ fechaDeEntrega =:fechaDeEntrega,
+ precioCalculado =:precioCalculado
+where idReserva = :idReserva

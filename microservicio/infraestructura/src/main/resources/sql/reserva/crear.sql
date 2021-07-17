@@ -1,1 +1,13 @@
-insert into reserva (nombre, clave,fecha_creacion) values (:nombre, :clave, :fechaCreacion)
+insert into reserva ( cedulaCliente,
+ nombreDeLaPelicula,
+ fechaDeReserva,
+ diasDeReserva,
+ fechaDeEntrega,
+ precioCalculado) 
+ values ( :cedulaCliente,
+ :nombreDeLaPelicula,
+ :fechaDeReserva,
+ :diasDeReserva,
+ :fechaDeEntrega,
+ :precioCalculado)
+

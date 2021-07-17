@@ -1,0 +1,1 @@
+select count(*) from reserva where cedulaCliente = :cedulaCliente

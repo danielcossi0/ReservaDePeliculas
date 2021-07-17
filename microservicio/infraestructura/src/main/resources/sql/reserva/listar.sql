@@ -1,2 +1,9 @@
-select id,nombre,clave,fecha_creacion
-from usuario
+select idReserva,
+ cedulaCliente,
+ nombreDeLaPelicula,
+ fechaDeReserva,
+ diasDeReserva,
+ fechaDeEntrega,
+ precioCalculado
+from reserva
+
