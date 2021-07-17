@@ -41,17 +41,19 @@ environment {
 			submoduleCfg: [], 
 			userRemoteConfigs: [[
 				credentialsId: 'GitHub_danielcossi0', 
-				url:'https://github.com/danielcossi0/ReservaDePeliculas.git'
+				url:'https://github.com/danielcossi0/Estacionamiento.git'
 				]]
 			])
 		}
 	}
 
-
+    
 	stage('Compile & Unit Tests') {
 		steps{
-			dir("${PROJECT_PATH_BACK}"){
-			sh 'gradle --stacktrace test'
+			sh './gradlew clean'
+			echo "------------>compile & Unit Tests<------------"
+			sh 'chmod +x gradlew'
+			sh './gradlew --b ./build.gradle test'
 		}
 	}
 
@@ -65,17 +67,16 @@ environment {
 	     }
 	}
 
-stage('Build') {
-      steps {
-		        dir("${PROJECT_PATH_BACK}")
-            {
+
+	stage('Build') {
+		steps{
 			echo "------------>Build<------------"
 			//Construir sin tarea test que se ejecutó previamente
-              sh 'gradle build -x test'
-            }
-
-      }
-    }
+			sh './gradlew --b ./build.gradle build -x test'
+		}
+	}
+ 
+  }
 
   post {
     always {
@@ -89,7 +90,7 @@ stage('Build') {
     failure {
 		echo 'This will run only if failed'
 		mail (to: 'daniel.cossio@ceiba.com.co',subject: "Failed Pipeline:${currentBuild.fullDisplayName}",body: "Something is wrong with ${env.BUILD_URL}")
-
+		
 	}
 
     unstable {
