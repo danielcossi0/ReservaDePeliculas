@@ -3,7 +3,7 @@ package com.ceiba.usuario.modelo.entidad;
 
 import lombok.Getter;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
 import static com.ceiba.dominio.ValidadorArgumento.validarMenor;;
@@ -21,17 +21,17 @@ public class Reserva {
     private Long idReserva;
     private String cedulaCliente;
     private String nombreDeLaPelicula;
-    private LocalDateTime fechaDeReserva;
+    private LocalDate fechaDeReserva;
     private int diasDeReserva;
-    private LocalDateTime fechaDeEntrega;
+    private LocalDate fechaDeEntrega;
     private double precioCalculado;
     
     public Reserva(Long idReserva, 
     		String cedulaCliente, 
     		String nombreDeLaPelicula, 
-    		LocalDateTime fechaDeReserva,
+    		LocalDate fechaDeReserva,
     		int diasDeReserva,
-    		LocalDateTime fechaDeEntrega,
+    		LocalDate fechaDeEntrega,
     		double precioCalculado) {
     	
     	validarObligatorio(cedulaCliente, DEBE_INGRESAR_LA_CEDULA_DEL_CLIENTE);

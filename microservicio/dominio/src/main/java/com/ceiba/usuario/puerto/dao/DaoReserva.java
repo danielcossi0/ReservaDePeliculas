@@ -16,5 +16,5 @@ public interface DaoReserva {
      * Permite listar las reservas de una persona
      * @return las reservas de una persona
      */ 
-    List<DtoReserva> listarPorCedula();
+    List<DtoReserva> listarPorCedula(String cedulaCliente);
 }

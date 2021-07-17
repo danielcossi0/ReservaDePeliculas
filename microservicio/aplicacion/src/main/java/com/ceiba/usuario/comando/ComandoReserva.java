@@ -1,6 +1,6 @@
 package com.ceiba.usuario.comando;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,8 +16,8 @@ public class ComandoReserva{
     private Long idReserva;
     private String cedulaCliente;
     private String nombreDeLaPelicula;
-    private LocalDateTime fechaDeReserva;
+    private LocalDate fechaDeReserva;
     private int diasDeReserva;
-    private LocalDateTime fechaDeEntrega;
+    private LocalDate fechaDeEntrega;
     private double precioCalculado;
 }

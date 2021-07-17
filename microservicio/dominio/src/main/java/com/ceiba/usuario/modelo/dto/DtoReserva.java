@@ -3,7 +3,7 @@ package com.ceiba.usuario.modelo.dto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Getter
 @AllArgsConstructor
@@ -12,9 +12,9 @@ public class DtoReserva {
     private Long idReserva;
     private String cedulaCliente;
     private String nombreDeLaPelicula;
-    private LocalDateTime fechaDeReserva;
+    private LocalDate fechaDeReserva;
     private int diasDeReserva;
-    private LocalDateTime fechaDeEntrega;
+    private LocalDate fechaDeEntrega;
     private double precioCalculado;
 
 }

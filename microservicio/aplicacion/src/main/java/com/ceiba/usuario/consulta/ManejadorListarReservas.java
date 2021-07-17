@@ -17,5 +17,5 @@ public class ManejadorListarReservas {
     }
 
     public List<DtoReserva> ejecutarListar(){ return this.daoReserva.listar(); }
-    public List<DtoReserva> ejecutarListarPorCedula(){ return this.daoReserva.listarPorCedula(); }
+    public List<DtoReserva> ejecutarListarPorCedula(String cedulaCliente){ return this.daoReserva.listarPorCedula(cedulaCliente); }
 }
