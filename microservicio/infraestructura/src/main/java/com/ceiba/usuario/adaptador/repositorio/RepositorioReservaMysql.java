@@ -27,9 +27,6 @@ public class RepositorioReservaMysql implements RepositorioReserva {
 
 	@SqlStatement(namespace = "reserva", value = "existeExcluyendoId")
 	private static String sqlExisteExcluyendoId;
-
-	@SqlStatement(namespace = "reserva", value = "puedeReservar")
-	private static String sqlPuedeReservar;
 	
 	@SqlStatement(namespace = "reserva", value = "cantidadDeReservas")
 	private static String sqlcantidadDeReservas;
