@@ -3,9 +3,7 @@ pipeline {
   agent {
     label 'Slave_Induccion'
   }
-environment {
-        PROJECT_PATH_BACK = './microservicio/'
-  }
+
   //Opciones específicas de Pipeline dentro del Pipeline
   options {
     	buildDiscarder(logRotator(numToKeepStr: '3'))
