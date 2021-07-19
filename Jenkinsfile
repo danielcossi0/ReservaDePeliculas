@@ -8,9 +8,7 @@ pipeline {
     	buildDiscarder(logRotator(numToKeepStr: '3'))
  	disableConcurrentBuilds()
   }
-	environment {
-        PROJECT_PATH_BACK = './microservicio/'
-	}
+	
  
 
   //Una sección que define las herramientas “preinstaladas” en Jenkins
@@ -49,13 +47,18 @@ pipeline {
 		}
 	}
 
-    
+       stage('Clean') {
+         steps{
+            sh 'chmod +x ./microservicio/./gradlew'
+            sh './microservicio/./gradlew --b ./microservicio/build.gradle clean'
+         }
+        }
 	stage('Compile & Unit Tests') {
 		steps{
-			sh './gradlew clean'
+			
 			echo "------------>compile & Unit Tests<------------"
 			sh 'chmod +x gradlew'
-			sh './gradlew --b ./build.gradle test'
+			sh './microservicio/gradlew --b ./microservicio/build.gradle test'
 		}
 	}
 
@@ -74,7 +77,7 @@ pipeline {
 		steps{
 			echo "------------>Build<------------"
 			//Construir sin tarea test que se ejecutó previamente
-			sh './gradlew --b ./build.gradle build -x test'
+			sh './microservicio/gradlew --b ./microservicio/build.gradle build -x test'
 		}
 	}
  
