@@ -3,7 +3,14 @@ pipeline {
   agent {
     label 'Slave_Induccion'
   }
-
+//Opciones específicas para el pipeline
+  options {
+    	buildDiscarder(logRotator(numToKeepStr: '3'))
+ 	disableConcurrentBuilds()
+  }
+	environment {
+        PROJECT_PATH_BACK = './microservicio/'
+	}
   //Opciones específicas de Pipeline dentro del Pipeline
   options {
     	buildDiscarder(logRotator(numToKeepStr: '3'))
