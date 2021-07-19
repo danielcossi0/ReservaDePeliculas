@@ -19,6 +19,8 @@ public class ReservaTestDataBuilder {
           nombreDeLaPelicula="Piratas del caribe";
           fechaDeReserva=LocalDate.now();
           diasDeReserva=5;
+
+          fechaDeEntrega=LocalDate.now().plusDays(diasDeReserva);
           precioCalculado=50000;
     	
     }

@@ -1,6 +1,5 @@
 package com.ceiba.usuario.servicio.testdatabuilder;
 
-import com.ceiba.usuario.comando.ComandoUsuario;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -23,7 +22,7 @@ public class ComandoUsuarioTestDataBuilder {
         return this;
     }
 
-    public ComandoUsuario build() {
+    /*public ComandoUsuario build() {
         return new ComandoUsuario(id,nombre, clave,fecha);
-    }
+    }*/
 }
