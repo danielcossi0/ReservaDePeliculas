@@ -25,6 +25,7 @@ public class Reserva {
     private int diasDeReserva;
     private LocalDate fechaDeEntrega;
     private double precioCalculado;
+    private String estado;
     
     public Reserva(Long idReserva, 
     		String cedulaCliente, 
@@ -32,7 +33,8 @@ public class Reserva {
     		LocalDate fechaDeReserva,
     		int diasDeReserva,
     		LocalDate fechaDeEntrega,
-    		double precioCalculado) {
+    		double precioCalculado,
+    		String estado) {
     	
     	validarObligatorio(cedulaCliente, DEBE_INGRESAR_LA_CEDULA_DEL_CLIENTE);
     	validarObligatorio(nombreDeLaPelicula, DEBE_INGRESAR_EL_NOMBRE_DE_LA_PELICULA);
@@ -47,6 +49,7 @@ public class Reserva {
     	this.diasDeReserva=diasDeReserva;
     	this.fechaDeEntrega=fechaDeEntrega;
     	this.precioCalculado=precioCalculado;
+    	this.estado=estado;
     	
     }
 
@@ -60,6 +63,10 @@ public class Reserva {
 
 	public void setFechaDeEntrega(LocalDate fechaDeEntrega) {
 		this.fechaDeEntrega = fechaDeEntrega;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
 	}
     
     

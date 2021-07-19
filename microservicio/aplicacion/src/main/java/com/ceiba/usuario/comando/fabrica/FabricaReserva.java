@@ -16,7 +16,8 @@ public class FabricaReserva {
         		comandoReserva.getFechaDeReserva(),
         		comandoReserva.getDiasDeReserva(),
         		comandoReserva.getFechaDeEntrega(),
-        		comandoReserva.getPrecioCalculado()
+        		comandoReserva.getPrecioCalculado(),
+        		comandoReserva.getEstado()
         );
     }
 

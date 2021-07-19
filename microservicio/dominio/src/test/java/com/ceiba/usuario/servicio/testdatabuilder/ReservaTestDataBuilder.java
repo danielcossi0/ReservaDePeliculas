@@ -13,15 +13,16 @@ public class ReservaTestDataBuilder {
     private int diasDeReserva;
     private LocalDate fechaDeEntrega;
     private double precioCalculado;
+    private String estado;
     
     public ReservaTestDataBuilder() {
     	  cedulaCliente="1005879105";
           nombreDeLaPelicula="Piratas del caribe";
           fechaDeReserva=LocalDate.now();
           diasDeReserva=5;
-
           fechaDeEntrega=LocalDate.now().plusDays(diasDeReserva);
           precioCalculado=50000;
+          estado="Pendiente";
     	
     }
     
@@ -31,7 +32,7 @@ public class ReservaTestDataBuilder {
     }
     
     public Reserva build() {
-    	return new Reserva(idReserva, cedulaCliente, nombreDeLaPelicula, fechaDeReserva, diasDeReserva, fechaDeEntrega, precioCalculado);
+    	return new Reserva(idReserva, cedulaCliente, nombreDeLaPelicula, fechaDeReserva, diasDeReserva, fechaDeEntrega, precioCalculado, estado);
     }
 
 }

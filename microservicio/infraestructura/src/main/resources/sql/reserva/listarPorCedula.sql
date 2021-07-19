@@ -4,6 +4,7 @@ select idReserva,
  fechaDeReserva,
  diasDeReserva,
  fechaDeEntrega,
- precioCalculado
+ precioCalculado,
+ estado
 from reserva
 where cedulaCliente=:cedulaCliente

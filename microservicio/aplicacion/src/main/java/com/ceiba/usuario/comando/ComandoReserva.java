@@ -20,4 +20,5 @@ public class ComandoReserva{
     private int diasDeReserva;
     private LocalDate fechaDeEntrega;
     private double precioCalculado;
+    private String estado;
 }

@@ -16,5 +16,6 @@ public class DtoReserva {
     private int diasDeReserva;
     private LocalDate fechaDeEntrega;
     private double precioCalculado;
+    private String estado;
 
 }

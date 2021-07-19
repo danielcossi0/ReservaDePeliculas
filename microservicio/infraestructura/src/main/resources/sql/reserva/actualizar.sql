@@ -4,5 +4,6 @@ set  cedulaCliente =:cedulaCliente,
  fechaDeReserva =:fechaDeReserva,
  diasDeReserva =:diasDeReserva,
  fechaDeEntrega =:fechaDeEntrega,
- precioCalculado =:precioCalculado
+ precioCalculado =:precioCalculado,
+ estado = :estado
 where idReserva = :idReserva

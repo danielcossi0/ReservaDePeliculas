@@ -21,10 +21,11 @@ public class MapeoReserva implements RowMapper<DtoReserva>, MapperResult {
         int diasDeReserva = resultSet.getInt("diasDeReserva");
         LocalDate fechaDeEntrega = extraerLocalDate(resultSet, "fechaDeEntrega");
         double precioCalculado = resultSet.getDouble("precioCalculado");
+        String estado = resultSet.getString("estado");
         
         
         return new DtoReserva(idReserva, cedulaCliente, nombreDeLaPelicula, 
-        		fechaDeReserva, diasDeReserva, fechaDeEntrega, precioCalculado);
+        		fechaDeReserva, diasDeReserva, fechaDeEntrega, precioCalculado, estado);
     }
 
 }

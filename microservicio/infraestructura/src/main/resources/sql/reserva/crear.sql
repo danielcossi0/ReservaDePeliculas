@@ -3,12 +3,14 @@ insert into reserva ( cedulaCliente,
  fechaDeReserva,
  diasDeReserva,
  fechaDeEntrega,
- precioCalculado) 
+ precioCalculado,
+ estado) 
  values ( :cedulaCliente,
  :nombreDeLaPelicula,
  :fechaDeReserva,
  :diasDeReserva,
  :fechaDeEntrega,
- :precioCalculado)
+ :precioCalculado,
+ :estado)
 
 

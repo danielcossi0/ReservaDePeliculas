@@ -18,6 +18,9 @@ public class RepositorioReservaMysql implements RepositorioReserva {
 	private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 	private final double PRECIO_POR_DIA_DE_RESERVA = 10000.0;
 	private final double PRECIO_POR_DIA_ADICIONAL_DE_RESERVA = 15000.0;
+	private final String ESTADO_PENDIENTE="Pendiente";
+	private final String ESTADO_ENTREGADO="Entregado";
+	
 	@SqlStatement(namespace = "reserva", value = "crear")
 	private static String sqlCrear;
 
@@ -35,6 +38,9 @@ public class RepositorioReservaMysql implements RepositorioReserva {
 
 	@SqlStatement(namespace = "reserva", value = "cantidadDeReservas")
 	private static String sqlcantidadDeReservas;
+	
+	
+	
 
 	public RepositorioReservaMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
 		this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
@@ -45,6 +51,7 @@ public class RepositorioReservaMysql implements RepositorioReserva {
 		reserva.setFechaDeReserva(LocalDate.now());
 		reserva.setPrecioCalculado(PRECIO_POR_DIA_DE_RESERVA * reserva.getDiasDeReserva());
 		reserva.setFechaDeEntrega(LocalDate.now().plusDays(reserva.getDiasDeReserva()));
+		reserva.setEstado(ESTADO_PENDIENTE);
 		return this.customNamedParameterJdbcTemplate.crear(reserva, sqlCrear);
 	}
 
@@ -89,6 +96,8 @@ public class RepositorioReservaMysql implements RepositorioReserva {
 		}
 		
 	}
+	
+	
 
 	@Override
 	public boolean existeExcluyendoId(Long idReserva, String cedula) {

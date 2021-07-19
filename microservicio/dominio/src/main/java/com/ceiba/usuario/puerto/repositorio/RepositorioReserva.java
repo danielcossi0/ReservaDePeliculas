@@ -50,5 +50,8 @@ public interface RepositorioReserva {
 	 */
 	int cantidadDeReservas(String cedula);
 
+	
+
+
 
 }

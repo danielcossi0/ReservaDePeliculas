@@ -1,7 +1,11 @@
-create table usuario (
- id int(11) not null auto_increment,
- nombre varchar(100) not null,
- clave varchar(45) not null,
- fecha_creacion datetime null,
- primary key (id)
+create table reserva (
+ idReserva int(11) not null auto_increment,
+ cedulaCliente varchar(15) not null,
+ nombreDeLaPelicula varchar(100) not null,
+ fechaDeReserva datetime null,
+ diasDeReserva int(1) not null,
+ fechaDeEntrega datetime null,
+ precioCalculado double null,
+ estado varchar(20) null,
+ primary key (idReserva)
 );
