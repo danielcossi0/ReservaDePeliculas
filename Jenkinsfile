@@ -49,8 +49,8 @@ pipeline {
 
        stage('Clean') {
          steps{
-            sh 'chmod +x ./microservicio/./gradlew'
-            sh './microservicio/./gradlew --b ./microservicio/build.gradle clean'
+            sh 'chmod +x ./microservicio/gradlew'
+            sh './microservicio/gradlew --b ./microservicio/build.gradle clean'
          }
         }
 	stage('Compile & Unit Tests') {
