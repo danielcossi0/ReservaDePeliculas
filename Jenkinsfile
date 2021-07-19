@@ -11,11 +11,7 @@ pipeline {
 	environment {
         PROJECT_PATH_BACK = './microservicio/'
 	}
-  //Opciones específicas de Pipeline dentro del Pipeline
-  options {
-    	buildDiscarder(logRotator(numToKeepStr: '3'))
- 	disableConcurrentBuilds()
-  }
+ 
 
   //Una sección que define las herramientas “preinstaladas” en Jenkins
   tools {
