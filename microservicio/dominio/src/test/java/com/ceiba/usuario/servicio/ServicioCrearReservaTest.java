@@ -2,22 +2,19 @@ package com.ceiba.usuario.servicio;
 
 import com.ceiba.usuario.excepcion.ValidaLimiteReservas;
 import com.ceiba.usuario.modelo.entidad.Reserva;
-import com.ceiba.usuario.modelo.entidad.Usuario;
 import com.ceiba.usuario.puerto.repositorio.RepositorioReserva;
-import com.ceiba.usuario.puerto.repositorio.RepositorioUsuario;
-import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
-import com.ceiba.dominio.excepcion.ExcepcionLongitudValor;
 import com.ceiba.usuario.servicio.testdatabuilder.ReservaTestDataBuilder;
-import com.ceiba.usuario.servicio.testdatabuilder.UsuarioTestDataBuilder;
 import org.junit.Test;
 import org.mockito.Mockito;
 
 import com.ceiba.BasePrueba;
 
-public class ServicioCrearUsuarioTest {
+public class ServicioCrearReservaTest {
 
 	private static final String EL_USUARIO_YA_TIENE_TRES_RESERVAS_PENDIENTES_SIN_ENTREGAR = "El usuario ya tiene 3 reservas pendientes sin entregar";
 
+	
+	
 
 	@Test(expected = AssertionError.class)
 	public void alquilarPeliculaConLimiteDeReservas() {
@@ -35,5 +32,24 @@ public class ServicioCrearUsuarioTest {
 
 		BasePrueba.assertThrows(() -> servicioCrearReserva.ejecutar(reserva), ValidaLimiteReservas.class,
 				EL_USUARIO_YA_TIENE_TRES_RESERVAS_PENDIENTES_SIN_ENTREGAR);}
+
+	public void calcularFechaDeEntregaDebeSerMenorA5Dias() {
+		// arrange
+
+		// act
+
+		// assert
+
+	}
+
+	public void calcularPrecioDeReservaSumandoDiezMilDiarios() {
+		// arrange
+
+		// act
+
+		// assert
+
+	}
+
 
 }

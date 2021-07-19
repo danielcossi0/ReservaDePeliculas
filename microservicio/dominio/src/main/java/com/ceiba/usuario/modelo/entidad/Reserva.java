@@ -2,6 +2,7 @@ package com.ceiba.usuario.modelo.entidad;
 
 
 import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDate;
 
@@ -49,6 +50,20 @@ public class Reserva {
     	this.precioCalculado=precioCalculado;
     	
     }
+
+	public void setFechaDeReserva(LocalDate fechaDeReserva) {
+		this.fechaDeReserva = fechaDeReserva;
+	}
+
+	public void setPrecioCalculado(double precioCalculado) {
+		this.precioCalculado = precioCalculado;
+	}
+
+	public void setFechaDeEntrega(LocalDate fechaDeEntrega) {
+		this.fechaDeEntrega = fechaDeEntrega;
+	}
+    
+    
     
     
     
