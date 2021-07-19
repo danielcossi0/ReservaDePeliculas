@@ -41,7 +41,7 @@ environment {
 			submoduleCfg: [], 
 			userRemoteConfigs: [[
 				credentialsId: 'GitHub_danielcossi0', 
-				url:'https://github.com/danielcossi0/Estacionamiento.git'
+				url:'https://github.com/danielcossi0/ReservaDePeliculas.git'
 				]]
 			])
 		}
