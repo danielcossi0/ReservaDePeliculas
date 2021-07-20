@@ -6,7 +6,6 @@ pipeline {
 //Opciones específicas para el pipeline
   options {
     	buildDiscarder(logRotator(numToKeepStr: '3'))
- 	disableConcurrentBuilds()
   }
 	
  
