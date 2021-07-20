@@ -6,6 +6,7 @@ pipeline {
 //Opciones específicas para el pipeline
   options {
     	buildDiscarder(logRotator(numToKeepStr: '3'))
+	disableConcurrentBuilds()
   }
 	
  
@@ -66,7 +67,7 @@ pipeline {
 			steps{
 				echo '------------>Análisis de código estático<------------'
 				withSonarQubeEnv('Sonar') {
-				sh "${tool name: 'SonarScanner', type:'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner"
+				sh "${tool name: 'SonarScanner', type:'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner -Dproject.settings=./sonar-project.properties"
 			}
 	     }
 	}
@@ -89,7 +90,7 @@ pipeline {
     success {
 		
    	 	echo 'This will run only if successful'
-		junit 'microservicio/build/test-results/test/*.xml' //RUTA DE TUS ARCHIVOS .XML
+		junit './microservicio/build/test-results/test/*.xml' //RUTA DE TUS ARCHIVOS .XML
 
     }
     failure {
