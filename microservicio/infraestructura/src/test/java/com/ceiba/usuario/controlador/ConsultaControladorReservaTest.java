@@ -44,7 +44,6 @@ public class ConsultaControladorReservaTest {
         mocMvc.perform(get("/reservas/123456789")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$", hasSize(1)))
                 .andExpect(jsonPath("$[0].idReserva", is(1)));
     }
 
