@@ -47,7 +47,12 @@ pipeline {
 		}
 	}
 
-       
+       stage('Clean') {
+         steps{
+            sh 'chmod +x ./microservicio/gradlew'
+            sh './microservicio/gradlew --b ./microservicio/build.gradle clean'
+         }
+        }
 	stage('Compile & Unit Tests') {
 		steps{
 			
@@ -85,7 +90,7 @@ pipeline {
     success {
 		
    	 	echo 'This will run only if successful'
-		junit 'build/test-results/test/*.xml' //RUTA DE TUS ARCHIVOS .XML
+		junit allowEmptyResults: true, 'build/test-results/test/*.xml' //RUTA DE TUS ARCHIVOS .XML
 
     }
     failure {
