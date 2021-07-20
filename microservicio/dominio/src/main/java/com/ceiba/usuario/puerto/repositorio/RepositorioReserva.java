@@ -34,24 +34,11 @@ public interface RepositorioReserva {
 	boolean existe(Long idReserva);
 
 	/**
-	 * Permite validar si existe una reserva con una cedula excluyendo un id
-	 * 
-	 * @param cedula
-	 * @return si existe o no
-	 */
-	boolean existeExcluyendoId(Long idReserva, String cedula);
-
-	
-	/**
 	 * Permite contar cuantas reservas tiene un usuario
 	 * 
 	 * @param cedula
 	 * @return numero de reservas
 	 */
 	int cantidadDeReservas(String cedula);
-
-	
-
-
 
 }

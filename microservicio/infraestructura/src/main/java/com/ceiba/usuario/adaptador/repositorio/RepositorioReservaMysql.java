@@ -5,7 +5,6 @@ import com.ceiba.infraestructura.jdbc.sqlstatement.SqlStatement;
 import com.ceiba.usuario.modelo.entidad.Reserva;
 import com.ceiba.usuario.puerto.repositorio.RepositorioReserva;
 
-
 import java.time.LocalDate;
 import java.time.Period;
 
@@ -16,11 +15,11 @@ import org.springframework.stereotype.Repository;
 public class RepositorioReservaMysql implements RepositorioReserva {
 
 	private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
-	private final double precioPorDiaDeReserva = 10000.0;
-	private final double precioPorDiaAdicionalDeReserva = 15000.0;
-	private final String estadoPendiente="Pendiente";
-	private static final String id = "idReserva";
-	
+	private static final double PRECIO_POR_DIA_DE_RESERVA = 10000.0;
+	private static final double PRECIO_ADICIONAL_POR_DIA_DE_RESERVA = 15000.0;
+	private static final String ESTADO_PENDIENTE = "Pendiente";
+	private static final String ID_RESERVA = "idReserva";
+
 	@SqlStatement(namespace = "reserva", value = "crear")
 	private static String sqlCrear;
 
@@ -38,9 +37,6 @@ public class RepositorioReservaMysql implements RepositorioReserva {
 
 	@SqlStatement(namespace = "reserva", value = "cantidadDeReservas")
 	private static String sqlcantidadDeReservas;
-	
-	
-	
 
 	public RepositorioReservaMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
 		this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
@@ -49,16 +45,16 @@ public class RepositorioReservaMysql implements RepositorioReserva {
 	@Override
 	public Long crear(Reserva reserva) {
 		reserva.setFechaDeReserva(LocalDate.now());
-		reserva.setPrecioCalculado(precioPorDiaDeReserva * reserva.getDiasDeReserva());
+		reserva.setPrecioCalculado(PRECIO_POR_DIA_DE_RESERVA * reserva.getDiasDeReserva());
 		reserva.setFechaDeEntrega(LocalDate.now().plusDays(reserva.getDiasDeReserva()));
-		reserva.setEstado(estadoPendiente);
+		reserva.setEstado(ESTADO_PENDIENTE);
 		return this.customNamedParameterJdbcTemplate.crear(reserva, sqlCrear);
 	}
 
 	@Override
 	public void eliminar(Long idReserva) {
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
-		paramSource.addValue(id, idReserva);
+		paramSource.addValue(ID_RESERVA, idReserva);
 
 		this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminar, paramSource);
 	}
@@ -66,7 +62,7 @@ public class RepositorioReservaMysql implements RepositorioReserva {
 	@Override
 	public boolean existe(Long idReserva) {
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
-		paramSource.addValue(id, idReserva);
+		paramSource.addValue(ID_RESERVA, idReserva);
 
 		return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste,
 				paramSource, Boolean.class);
@@ -78,35 +74,23 @@ public class RepositorioReservaMysql implements RepositorioReserva {
 				.until(reserva.getFechaDeEntrega());
 
 		this.customNamedParameterJdbcTemplate.actualizar(reserva, sqlActualizar);
-		
+
 		LocalDate fechaRealDeEntrega = reserva.getFechaDeEntrega();
 		LocalDate fechaDeEntregaEstimada = reserva.getFechaDeReserva().plusDays(reserva.getDiasDeReserva());
-		
+
 		if (fechaRealDeEntrega.isAfter(fechaDeEntregaEstimada)) {
 
-			reserva.setPrecioCalculado(precioPorDiaDeReserva * reserva.getDiasDeReserva()
-					+ precioPorDiaAdicionalDeReserva * diasAdicionales.getDays());
-			
+			reserva.setPrecioCalculado(PRECIO_POR_DIA_DE_RESERVA * reserva.getDiasDeReserva()
+					+ PRECIO_ADICIONAL_POR_DIA_DE_RESERVA * diasAdicionales.getDays());
+
 			this.customNamedParameterJdbcTemplate.actualizar(reserva, sqlActualizar);
-			
-		}else if(fechaRealDeEntrega.isBefore(fechaDeEntregaEstimada)){
+
+		} else if (fechaRealDeEntrega.isBefore(fechaDeEntregaEstimada)) {
 			Period diasRealesDeReserva = reserva.getFechaDeReserva().until(reserva.getFechaDeEntrega());
-			reserva.setPrecioCalculado(diasRealesDeReserva.getDays()*precioPorDiaDeReserva);
+			reserva.setPrecioCalculado(diasRealesDeReserva.getDays() * PRECIO_POR_DIA_DE_RESERVA);
 			this.customNamedParameterJdbcTemplate.actualizar(reserva, sqlActualizar);
 		}
-		
-	}
-	
-	
 
-	@Override
-	public boolean existeExcluyendoId(Long idReserva, String cedula) {
-		MapSqlParameterSource paramSource = new MapSqlParameterSource();
-		paramSource.addValue(id, idReserva);
-		paramSource.addValue("cedulaCliente", cedula);
-
-		return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate()
-				.queryForObject(sqlExisteExcluyendoId, paramSource, Boolean.class);
 	}
 
 	@Override
@@ -118,5 +102,4 @@ public class RepositorioReservaMysql implements RepositorioReserva {
 				.queryForObject(sqlcantidadDeReservas, paramSource, int.class);
 	}
 
-	
 }
