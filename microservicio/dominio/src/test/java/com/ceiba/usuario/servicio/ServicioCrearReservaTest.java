@@ -21,7 +21,7 @@ public class ServicioCrearReservaTest {
 	private static final String LA_RESERVA_DEBE_SER_MENOR_A_5_DIAS = "Los dias de reserva deben ser menores a 5";
 
 	@Test(expected = AssertionError.class)
-	public void alquilarPeliculaConLimiteDeReservas() {
+	public void alquilarPeliculaConLimiteDeReservasTest() {
 
 		// arrange
 
@@ -39,7 +39,7 @@ public class ServicioCrearReservaTest {
 	}
 
 	@Test(expected = AssertionError.class)
-	public void calcularFechaDeEntregaDebeSerMenorA5Dias() {
+	public void calcularFechaDeEntregaDebeSerMenorA5DiasTest() {
 		// arrange
 
 		Reserva reserva = new ReservaTestDataBuilder().build();
@@ -56,17 +56,14 @@ public class ServicioCrearReservaTest {
 	}
 
 	@Test
-	public void alquilarPeliculaCorrectamente() {
+	public void alquilarPeliculaCorrectamenteTest() {
 		// arrange
 		Reserva reserva = new ReservaTestDataBuilder().build();
 		RepositorioReserva repositorioReserva = Mockito.mock(RepositorioReserva.class);
 		ServicioCrearReserva servicioCrearReserva = new ServicioCrearReserva(repositorioReserva);
-		
-		// act
 		Mockito.when(repositorioReserva.crear(Mockito.any())).thenReturn(1L);
 		
-		
-		// assert
+		// act -  assert
 		
 		
 		assertEquals(1L, servicioCrearReserva.ejecutar(reserva), 0.0);

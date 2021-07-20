@@ -19,7 +19,6 @@ public class RepositorioReservaMysql implements RepositorioReserva {
 	private final double PRECIO_POR_DIA_DE_RESERVA = 10000.0;
 	private final double PRECIO_POR_DIA_ADICIONAL_DE_RESERVA = 15000.0;
 	private final String ESTADO_PENDIENTE="Pendiente";
-	private final String ESTADO_ENTREGADO="Entregado";
 	
 	@SqlStatement(namespace = "reserva", value = "crear")
 	private static String sqlCrear;
@@ -86,7 +85,7 @@ public class RepositorioReservaMysql implements RepositorioReserva {
 
 			reserva.setPrecioCalculado(PRECIO_POR_DIA_DE_RESERVA * reserva.getDiasDeReserva()
 					+ PRECIO_POR_DIA_ADICIONAL_DE_RESERVA * DIAS_ADICIONALES.getDays());
-
+			
 			this.customNamedParameterJdbcTemplate.actualizar(reserva, sqlActualizar);
 			
 		}else if(fechaRealDeEntrega.isBefore(fechaDeEntregaEstimada)){
