@@ -90,7 +90,7 @@ public class ServicioCrearReservaTest {
 		BasePrueba.assertThrows(() -> servicioCrearReserva.ejecutar(reserva), ExcepcionValorObligatorio.class,
 				DEBE_INGRESAR_EL_NOMBRE_DE_LA_PELICULA);
 	}
-	
+
 	@Test(expected = AssertionError.class)
 	public void reservarSinCedulaDeCliente() {
 		// arrange
@@ -107,7 +107,7 @@ public class ServicioCrearReservaTest {
 		BasePrueba.assertThrows(() -> servicioCrearReserva.ejecutar(reserva), ExcepcionValorObligatorio.class,
 				DEBE_INGRESAR_LA_CEDULA_DEL_CLIENTE);
 	}
-	
+
 	@Test(expected = AssertionError.class)
 	public void reservarSinDiasDeReserva() {
 		// arrange
@@ -127,18 +127,12 @@ public class ServicioCrearReservaTest {
 
 	@Test
 	public void crearDtoReserva() {
-		
+
 		// arrange
-		DtoReserva dtoReserva = new DtoReserva(1L, 
-				"123456789", 
-				"Pelicula Test", 
-				LocalDate.now(), 
-				1, 
-				LocalDate.now().plusDays(1), 
-				10000., 
-				"Pendiente");
-		//act - assert
-		
+		DtoReserva dtoReserva = new DtoReserva(1L, "123456789", "Pelicula Test", LocalDate.now(), 1,
+				LocalDate.now().plusDays(1), 10000., "Pendiente");
+		// act - assert
+
 		assertEquals(1L, dtoReserva.getIdReserva(), 0.0);
 		assertEquals("123456789", dtoReserva.getCedulaCliente());
 		assertEquals("Pelicula Test", dtoReserva.getNombreDeLaPelicula());
@@ -147,9 +141,7 @@ public class ServicioCrearReservaTest {
 		assertEquals(LocalDate.now().plusDays(1), dtoReserva.getFechaDeEntrega());
 		assertEquals(10000.0, dtoReserva.getPrecioCalculado(), 0.0);
 		assertEquals("Pendiente", dtoReserva.getEstado());
-		
-		
-		
+
 	}
-	
+
 }

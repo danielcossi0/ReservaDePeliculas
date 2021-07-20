@@ -5,7 +5,7 @@ import com.ceiba.usuario.modelo.entidad.Reserva;
 import com.ceiba.usuario.puerto.repositorio.RepositorioReserva;
 import com.ceiba.usuario.servicio.testdatabuilder.ReservaTestDataBuilder;
 
-import static org.mockito.Mockito.atLeastOnce;
+import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.verify;
 
 import java.time.LocalDate;
@@ -37,7 +37,7 @@ public class ServicioActualizarReservaTest {
 
 		// assert
 
-		verify(repositorioReserva, atLeastOnce()).actualizar(reserva);
+		verify(repositorioReserva, atLeast(1)).actualizar(reserva);
 		;
 
 	}
@@ -45,7 +45,7 @@ public class ServicioActualizarReservaTest {
 	@Test(expected = AssertionError.class)
 	public void validarReservaExisteEnElSistemaTest() {
 		// arrange
-		Reserva reserva = new ReservaTestDataBuilder().build();
+		Reserva reserva = new ReservaTestDataBuilder().conId(1L).build();
 		RepositorioReserva repositorioReserva = Mockito.mock(RepositorioReserva.class);
 		ServicioActualizarReserva servicioActualizarReserva = new ServicioActualizarReserva(repositorioReserva);
 		Mockito.when(repositorioReserva.existe(Mockito.anyLong())).thenReturn(true);
