@@ -6,13 +6,10 @@ import com.ceiba.usuario.modelo.entidad.Reserva;
 import com.ceiba.usuario.puerto.repositorio.RepositorioReserva;
 import com.ceiba.usuario.servicio.testdatabuilder.ReservaTestDataBuilder;
 
-import junit.framework.Assert;
-
 import static org.junit.Assert.assertEquals;
 
 import java.time.LocalDate;
 
-import org.h2.command.ddl.DropAggregate;
 import org.junit.Test;
 import org.mockito.Mockito;
 
