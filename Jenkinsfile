@@ -90,7 +90,7 @@ pipeline {
     success {
 		
    	 	echo 'This will run only if successful'
-		junit allowEmptyResults: true, 'build/test-results/test/*.xml' //RUTA DE TUS ARCHIVOS .XML
+		junit allowEmptyResults: true, testResults:'build/test-results/test/*.xml' //RUTA DE TUS ARCHIVOS .XML
 
     }
     failure {
