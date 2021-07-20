@@ -6,7 +6,7 @@ import lombok.Setter;
 import java.time.LocalDate;
 
 import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
-import static com.ceiba.dominio.ValidadorArgumento.validarMenor;;
+import static com.ceiba.dominio.ValidadorArgumento.validarMenor;
 
 @Getter
 @Setter
