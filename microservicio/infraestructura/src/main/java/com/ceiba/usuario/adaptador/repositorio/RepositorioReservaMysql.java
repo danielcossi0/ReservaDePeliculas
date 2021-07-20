@@ -63,7 +63,7 @@ public class RepositorioReservaMysql implements RepositorioReserva {
 	}
 
 	@Override
-	public boolean existe(int idReserva) {
+	public boolean existe(Long idReserva) {
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("idReserva", idReserva);
 
@@ -116,4 +116,6 @@ public class RepositorioReservaMysql implements RepositorioReserva {
 		return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate()
 				.queryForObject(sqlcantidadDeReservas, paramSource, int.class);
 	}
+
+	
 }

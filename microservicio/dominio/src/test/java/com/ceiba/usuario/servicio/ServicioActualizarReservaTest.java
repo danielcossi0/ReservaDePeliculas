@@ -10,12 +10,18 @@ import com.ceiba.usuario.servicio.testdatabuilder.ReservaTestDataBuilder;
 import junit.framework.Assert;
 
 import static org.junit.Assert.assertSame;
+import static org.mockito.Matchers.anyLong;
+import static org.mockito.Mockito.atLeastOnce;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 import org.junit.Test;
+import org.junit.internal.builders.AllDefaultPossibilitiesBuilder;
 import org.mockito.Mockito;
+import org.mockito.exceptions.verification.WantedButNotInvoked;
 
 import com.ceiba.BasePrueba;
 
@@ -26,20 +32,24 @@ public class ServicioActualizarReservaTest {
 	@Test
 	public void devolverPeliculaAntesDeFechaDeEntregaActualizaPrecioTest() {
 		// arrange
-		Reserva reserva = new ReservaTestDataBuilder().build();
+		Reserva reserva = new ReservaTestDataBuilder().conId(1L).build();
+		LocalDate fechaDeEntregaActualizada = reserva.getFechaDeEntrega().plusDays(1);
 		RepositorioReserva repositorioReserva = Mockito.mock(RepositorioReserva.class);
 		ServicioActualizarReserva servicioActualizarReserva = new ServicioActualizarReserva(repositorioReserva);
-		LocalDate fechaDeReserva = LocalDate.parse("2021-07-19", DateTimeFormatter.ofPattern("yyyy-mm-dd"));
-		LocalDate fechaDeEntrega = LocalDate.parse("2021-07-24", DateTimeFormatter.ofPattern("yyyy-mm-dd"));
-		
-		DtoReserva dtoReserva = new DtoReserva(1L, "132456789",
-				"Pelicula test", fechaDeReserva, 5, fechaDeEntrega, 50000.0, "Pendiente");
-		// act - assert
 
-		//AQUI VOY
-		
-		
-		
+		Mockito.when(repositorioReserva.existe(Mockito.anyLong())).thenReturn(true);
+		;
+
+		// act
+
+		reserva.setFechaDeEntrega(fechaDeEntregaActualizada);
+		servicioActualizarReserva.ejecutar(reserva);
+
+		// assert
+
+		verify(repositorioReserva, atLeastOnce()).actualizar(reserva);
+		;
+
 	}
 
 	@Test(expected = AssertionError.class)
@@ -53,16 +63,6 @@ public class ServicioActualizarReservaTest {
 
 		BasePrueba.assertThrows(() -> servicioActualizarReserva.ejecutar(reserva), ExcepcionSinDatos.class,
 				LA_RESERVA_NO_EXISTE_EN_EL_SISTEMA);
-	}
-
-	@Test
-	public void eliminarReserva() {
-		// arrange
-
-		// act
-
-		// assert
-
 	}
 
 }
