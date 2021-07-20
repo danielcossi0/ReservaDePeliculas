@@ -91,7 +91,7 @@ pipeline {
 		// Fool Jenkins into thinking the tests results are new
     		sh 'find . -name "TEST-*.xml" -exec touch {} \\;'
    	 	echo 'This will run only if successful'
-		junit 'build/test-results/test/*.xml' //RUTA DE TUS ARCHIVOS .XML
+		junit 'build/test-results/test/test/*.xml' //RUTA DE TUS ARCHIVOS .XML
 
     }
     failure {
