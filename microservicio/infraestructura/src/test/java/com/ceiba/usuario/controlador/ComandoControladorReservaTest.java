@@ -6,6 +6,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.time.LocalDate;
+
 import com.ceiba.ApplicationMock;
 import com.ceiba.usuario.comando.ComandoReserva;
 import com.ceiba.usuario.servicio.testdatabuilder.ComandoReservaTestDataBuilder;
@@ -58,6 +60,32 @@ public class ComandoControladorReservaTest {
 		Long id = 1L;
 
 		ComandoReserva reserva = new ComandoReservaTestDataBuilder().build();
+		// act - assert
+		mocMvc.perform(put("/reservas/{id}", id).contentType(MediaType.APPLICATION_JSON)
+				.content(objectMapper.writeValueAsString(reserva))).andExpect(status().isOk());
+	}
+	
+	@Test
+	public void actualizarConFechaMayorALaReserva() throws Exception {
+		// arrange
+		Long id = 1L;
+
+		LocalDate fechaActualizadaDeEntrega = LocalDate.now().plusDays(6);
+		ComandoReserva reserva = new ComandoReservaTestDataBuilder().build();
+		reserva.setFechaDeEntrega(fechaActualizadaDeEntrega);
+		// act - assert
+		mocMvc.perform(put("/reservas/{id}", id).contentType(MediaType.APPLICATION_JSON)
+				.content(objectMapper.writeValueAsString(reserva))).andExpect(status().isOk());
+	}
+	
+	@Test
+	public void actualizarConFechaMenorALaReserva() throws Exception {
+		// arrange
+		Long id = 1L;
+
+		LocalDate fechaActualizadaDeEntrega = LocalDate.now().plusDays(1);
+		ComandoReserva reserva = new ComandoReservaTestDataBuilder().build();
+		reserva.setFechaDeEntrega(fechaActualizadaDeEntrega);
 		// act - assert
 		mocMvc.perform(put("/reservas/{id}", id).contentType(MediaType.APPLICATION_JSON)
 				.content(objectMapper.writeValueAsString(reserva))).andExpect(status().isOk());
