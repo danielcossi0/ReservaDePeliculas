@@ -20,7 +20,7 @@ public class ServicioActualizarReservaTest {
 	private static final String LA_RESERVA_NO_EXISTE_EN_EL_SISTEMA = "La reserva no existe en el sistema";
 
 	@Test
-	public void devolverPeliculaAntesDeFechaDeEntregaActualizaPrecioTest() {
+	public void devolverPeliculaTest() {
 		// arrange
 		Reserva reserva = new ReservaTestDataBuilder().conId(1L).build();
 		LocalDate fechaDeEntregaActualizada = reserva.getFechaDeEntrega().plusDays(1);
@@ -43,7 +43,7 @@ public class ServicioActualizarReservaTest {
 	}
 
 	@Test(expected = AssertionError.class)
-	public void validarReservaExisteEnElSistemaTest() {
+	public void actualizarReservaQueNoExisteTest() {
 		// arrange
 		Reserva reserva = new ReservaTestDataBuilder().conId(1L).build();
 		RepositorioReserva repositorioReserva = Mockito.mock(RepositorioReserva.class);

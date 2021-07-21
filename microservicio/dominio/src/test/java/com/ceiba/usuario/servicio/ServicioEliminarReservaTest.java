@@ -15,7 +15,7 @@ import org.mockito.Mockito;
 public class ServicioEliminarReservaTest {
 
 	@Test
-	public void eliminarReserva() {
+	public void eliminarReservaTest() {
 		// arrange
 		Reserva reserva = new ReservaTestDataBuilder().conId(1L).build();
 		RepositorioReserva repositorioReserva = Mockito.mock(RepositorioReserva.class);
