@@ -1,1 +1,1 @@
-select count(*) from reserva where cedulaCliente = :cedulaCliente
+select count(*) from reserva where cedulaCliente = :cedulaCliente and estado='Pendiente'
