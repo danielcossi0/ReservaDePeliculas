@@ -1,11 +1,12 @@
 package com.ceiba.configuracion;
 
-import com.ceiba.usuario.puerto.repositorio.RepositorioReserva;
-import com.ceiba.usuario.servicio.ServicioActualizarReserva;
-import com.ceiba.usuario.servicio.ServicioCrearReserva;
-import com.ceiba.usuario.servicio.ServicioEliminarReserva;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import com.ceiba.reserva.puerto.repositorio.RepositorioReserva;
+import com.ceiba.reserva.servicio.ServicioActualizarReserva;
+import com.ceiba.reserva.servicio.ServicioCrearReserva;
+import com.ceiba.reserva.servicio.ServicioEliminarReserva;
 
 @Configuration
 public class BeanServicio {

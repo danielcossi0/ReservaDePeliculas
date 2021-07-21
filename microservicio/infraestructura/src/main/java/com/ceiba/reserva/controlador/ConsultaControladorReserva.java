@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ceiba.reserva.consulta.ManejadorListarReservas;
-import com.ceiba.usuario.modelo.dto.DtoReserva;
+import com.ceiba.reserva.modelo.dto.DtoReserva;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

@@ -1,8 +1,8 @@
-package com.ceiba.usuario.puerto.dao;
-
-import com.ceiba.usuario.modelo.dto.DtoReserva;
+package com.ceiba.reserva.puerto.dao;
 
 import java.util.List;
+
+import com.ceiba.reserva.modelo.dto.DtoReserva;
 
 public interface DaoReserva {
 

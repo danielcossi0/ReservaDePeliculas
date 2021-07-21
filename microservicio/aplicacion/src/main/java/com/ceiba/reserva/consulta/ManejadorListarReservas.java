@@ -2,10 +2,10 @@ package com.ceiba.reserva.consulta;
 
 import java.util.List;
 
-import com.ceiba.usuario.puerto.dao.DaoReserva;
 import org.springframework.stereotype.Component;
 
-import com.ceiba.usuario.modelo.dto.DtoReserva;
+import com.ceiba.reserva.modelo.dto.DtoReserva;
+import com.ceiba.reserva.puerto.dao.DaoReserva;
 
 @Component
 public class ManejadorListarReservas {

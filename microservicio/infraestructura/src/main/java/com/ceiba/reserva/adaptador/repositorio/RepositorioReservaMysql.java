@@ -2,8 +2,8 @@ package com.ceiba.reserva.adaptador.repositorio;
 
 import com.ceiba.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
 import com.ceiba.infraestructura.jdbc.sqlstatement.SqlStatement;
-import com.ceiba.usuario.modelo.entidad.Reserva;
-import com.ceiba.usuario.puerto.repositorio.RepositorioReserva;
+import com.ceiba.reserva.modelo.entidad.Reserva;
+import com.ceiba.reserva.puerto.repositorio.RepositorioReserva;
 
 import java.time.LocalDate;
 import java.time.Period;

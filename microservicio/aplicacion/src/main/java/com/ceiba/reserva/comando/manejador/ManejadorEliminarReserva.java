@@ -1,7 +1,8 @@
 package com.ceiba.reserva.comando.manejador;
 
 import com.ceiba.manejador.ManejadorComando;
-import com.ceiba.usuario.servicio.ServicioEliminarReserva;
+import com.ceiba.reserva.servicio.ServicioEliminarReserva;
+
 import org.springframework.stereotype.Component;
 
 

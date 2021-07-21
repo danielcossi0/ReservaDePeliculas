@@ -1,4 +1,4 @@
-package com.ceiba.usuario.excepcion;
+package com.ceiba.reserva.excepcion;
 
 public class ValidaLimiteReservas extends RuntimeException {
 

@@ -11,7 +11,8 @@ import java.time.LocalDate;
 import com.ceiba.ApplicationMock;
 import com.ceiba.reserva.comando.ComandoReserva;
 import com.ceiba.reserva.controlador.ComandoControladorReserva;
-import com.ceiba.usuario.servicio.testdatabuilder.ComandoReservaTestDataBuilder;
+import com.ceiba.reserva.servicio.testdatabuilder.ComandoReservaTestDataBuilder;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

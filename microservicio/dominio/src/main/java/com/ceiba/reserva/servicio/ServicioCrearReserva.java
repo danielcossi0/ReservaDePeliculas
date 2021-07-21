@@ -1,8 +1,8 @@
-package com.ceiba.usuario.servicio;
+package com.ceiba.reserva.servicio;
 
-import com.ceiba.usuario.excepcion.ValidaLimiteReservas;
-import com.ceiba.usuario.modelo.entidad.Reserva;
-import com.ceiba.usuario.puerto.repositorio.RepositorioReserva;
+import com.ceiba.reserva.excepcion.ValidaLimiteReservas;
+import com.ceiba.reserva.modelo.entidad.Reserva;
+import com.ceiba.reserva.puerto.repositorio.RepositorioReserva;
 
 
 public class ServicioCrearReserva {

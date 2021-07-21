@@ -1,10 +1,10 @@
 package com.ceiba.reserva.servicio;
 
 import com.ceiba.dominio.excepcion.ExcepcionSinDatos;
+import com.ceiba.reserva.modelo.entidad.Reserva;
+import com.ceiba.reserva.puerto.repositorio.RepositorioReserva;
+import com.ceiba.reserva.servicio.ServicioActualizarReserva;
 import com.ceiba.reserva.servicio.testdatabuilder.ReservaTestDataBuilder;
-import com.ceiba.usuario.modelo.entidad.Reserva;
-import com.ceiba.usuario.puerto.repositorio.RepositorioReserva;
-import com.ceiba.usuario.servicio.ServicioActualizarReserva;
 
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.verify;

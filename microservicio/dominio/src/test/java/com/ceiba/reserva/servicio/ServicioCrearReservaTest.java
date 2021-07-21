@@ -1,11 +1,5 @@
 package com.ceiba.reserva.servicio;
 
-import com.ceiba.usuario.excepcion.ValidaLimiteReservas;
-import com.ceiba.usuario.modelo.dto.DtoReserva;
-import com.ceiba.usuario.modelo.entidad.Reserva;
-import com.ceiba.usuario.puerto.repositorio.RepositorioReserva;
-import com.ceiba.usuario.servicio.ServicioCrearReserva;
-
 import static org.junit.Assert.assertEquals;
 
 import java.time.LocalDate;
@@ -16,6 +10,11 @@ import org.mockito.Mockito;
 import com.ceiba.BasePrueba;
 import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
 import com.ceiba.dominio.excepcion.ExcepcionValorObligatorio;
+import com.ceiba.reserva.excepcion.ValidaLimiteReservas;
+import com.ceiba.reserva.modelo.dto.DtoReserva;
+import com.ceiba.reserva.modelo.entidad.Reserva;
+import com.ceiba.reserva.puerto.repositorio.RepositorioReserva;
+import com.ceiba.reserva.servicio.ServicioCrearReserva;
 import com.ceiba.reserva.servicio.testdatabuilder.ReservaTestDataBuilder;
 
 public class ServicioCrearReservaTest {

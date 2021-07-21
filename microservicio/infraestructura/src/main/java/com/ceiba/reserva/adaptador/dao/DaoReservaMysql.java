@@ -4,12 +4,11 @@ import java.util.List;
 
 import com.ceiba.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
 import com.ceiba.infraestructura.jdbc.sqlstatement.SqlStatement;
-import com.ceiba.usuario.puerto.dao.DaoReserva;
+import com.ceiba.reserva.modelo.dto.DtoReserva;
+import com.ceiba.reserva.puerto.dao.DaoReserva;
 
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Component;
-
-import com.ceiba.usuario.modelo.dto.DtoReserva;
 
 @Component
 public class DaoReservaMysql implements DaoReserva {

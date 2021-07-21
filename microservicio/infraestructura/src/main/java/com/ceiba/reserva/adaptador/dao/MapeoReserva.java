@@ -5,7 +5,8 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 
 import com.ceiba.infraestructura.jdbc.MapperResult;
-import com.ceiba.usuario.modelo.dto.DtoReserva;
+import com.ceiba.reserva.modelo.dto.DtoReserva;
+
 import org.springframework.jdbc.core.RowMapper;
 
 public class MapeoReserva implements RowMapper<DtoReserva>, MapperResult {

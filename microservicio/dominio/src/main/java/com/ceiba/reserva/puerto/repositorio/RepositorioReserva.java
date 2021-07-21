@@ -1,6 +1,6 @@
-package com.ceiba.usuario.puerto.repositorio;
+package com.ceiba.reserva.puerto.repositorio;
 
-import com.ceiba.usuario.modelo.entidad.Reserva;
+import com.ceiba.reserva.modelo.entidad.Reserva;
 
 public interface RepositorioReserva {
 	/**

@@ -1,6 +1,6 @@
-package com.ceiba.usuario.servicio;
+package com.ceiba.reserva.servicio;
 
-import com.ceiba.usuario.puerto.repositorio.RepositorioReserva;
+import com.ceiba.reserva.puerto.repositorio.RepositorioReserva;
 
 public class ServicioEliminarReserva {
 
