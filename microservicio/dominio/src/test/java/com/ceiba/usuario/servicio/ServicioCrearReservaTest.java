@@ -144,7 +144,7 @@ public class ServicioCrearReservaTest {
 
 	}
 
-	@Test(expected = AssertionError.class)
+	@Test
 	public void ValidaLimiteReservasTest() throws Exception {
 
 		// act - assert
