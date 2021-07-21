@@ -144,21 +144,11 @@ public class ServicioCrearReservaTest {
 
 	}
 
-	@Test(expected = AssertionError.class)
-	public void ValidaLimiteReservasTest() throws Exception {
-
-		// act - assert
-		BasePrueba.assertThrows(
-				() -> new ValidaLimiteReservas(EL_USUARIO_YA_TIENE_TRES_RESERVAS_PENDIENTES_SIN_ENTREGAR),
-				ValidaLimiteReservas.class, EL_USUARIO_YA_TIENE_TRES_RESERVAS_PENDIENTES_SIN_ENTREGAR);
-
-	}
-
 	@Test
 	public void crearReserva() {
 		// arrange
-		Reserva Reserva = new Reserva(1L, "123456789", "Pelicula Test", LocalDate.now(), 1,
-				LocalDate.now().plusDays(1), 10000., "Pendiente");
+		Reserva Reserva = new Reserva(1L, "123456789", "Pelicula Test", LocalDate.now(), 1, LocalDate.now().plusDays(1),
+				10000., "Pendiente");
 		// act - assert
 
 		assertEquals(1L, Reserva.getIdReserva(), 0.0);
@@ -167,8 +157,24 @@ public class ServicioCrearReservaTest {
 		assertEquals(LocalDate.now(), Reserva.getFechaDeReserva());
 		assertEquals(1, Reserva.getDiasDeReserva());
 		assertEquals(LocalDate.now().plusDays(1), Reserva.getFechaDeEntrega());
-		assertEquals(10000.0,Reserva.getPrecioCalculado(), 0.0);
+		assertEquals(10000.0, Reserva.getPrecioCalculado(), 0.0);
 		assertEquals("Pendiente", Reserva.getEstado());
 
 	}
+
+	@Test
+	public void ValidaLimiteReservasTest() throws Exception {
+		// arrange
+		Reserva reserva = new ReservaTestDataBuilder().build();
+		RepositorioReserva repositorioReserva = Mockito.mock(RepositorioReserva.class);
+		ServicioCrearReserva servicioCrearReserva = new ServicioCrearReserva(repositorioReserva);
+		Mockito.when(repositorioReserva.cantidadDeReservas(Mockito.any())).thenReturn(5);
+
+		// act - assert
+
+		BasePrueba.assertThrows(() -> servicioCrearReserva.ejecutar(reserva), ValidaLimiteReservas.class,
+				EL_USUARIO_YA_TIENE_TRES_RESERVAS_PENDIENTES_SIN_ENTREGAR);
+
+	}
+
 }

@@ -42,13 +42,13 @@ public class ServicioActualizarReservaTest {
 
 	}
 
-	@Test(expected = AssertionError.class)
+	@Test
 	public void actualizarReservaQueNoExisteTest() {
 		// arrange
 		Reserva reserva = new ReservaTestDataBuilder().conId(1L).build();
 		RepositorioReserva repositorioReserva = Mockito.mock(RepositorioReserva.class);
 		ServicioActualizarReserva servicioActualizarReserva = new ServicioActualizarReserva(repositorioReserva);
-		Mockito.when(repositorioReserva.existe(Mockito.anyLong())).thenReturn(true);
+		Mockito.when(repositorioReserva.existe(Mockito.anyLong())).thenReturn(false);
 		// act - assert
 
 		BasePrueba.assertThrows(() -> servicioActualizarReserva.ejecutar(reserva), ExcepcionSinDatos.class,
