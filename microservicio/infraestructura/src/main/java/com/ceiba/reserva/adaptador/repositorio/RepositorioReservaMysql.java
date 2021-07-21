@@ -97,6 +97,7 @@ public class RepositorioReservaMysql implements RepositorioReserva {
 	public int cantidadDeReservas(String cedulaCliente) {
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("cedulaCliente", cedulaCliente);
+		paramSource.addValue("estado", ESTADO_PENDIENTE);
 
 		return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate()
 				.queryForObject(sqlcantidadDeReservas, paramSource, int.class);
