@@ -1,8 +1,9 @@
-package com.ceiba.usuario.servicio;
+package com.ceiba.reserva.servicio;
 
+import com.ceiba.reserva.servicio.testdatabuilder.ReservaTestDataBuilder;
 import com.ceiba.usuario.modelo.entidad.Reserva;
 import com.ceiba.usuario.puerto.repositorio.RepositorioReserva;
-import com.ceiba.usuario.servicio.testdatabuilder.ReservaTestDataBuilder;
+import com.ceiba.usuario.servicio.ServicioEliminarReserva;
 
 import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.verify;

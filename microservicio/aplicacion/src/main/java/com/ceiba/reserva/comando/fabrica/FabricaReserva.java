@@ -1,9 +1,8 @@
-package com.ceiba.usuario.comando.fabrica;
+package com.ceiba.reserva.comando.fabrica;
 
+import com.ceiba.reserva.comando.ComandoReserva;
 import com.ceiba.usuario.modelo.entidad.Reserva;
 import org.springframework.stereotype.Component;
-
-import com.ceiba.usuario.comando.ComandoReserva;
 
 @Component
 public class FabricaReserva {

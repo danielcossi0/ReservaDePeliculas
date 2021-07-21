@@ -1,4 +1,4 @@
-package com.ceiba.usuario.consulta;
+package com.ceiba.reserva.consulta;
 
 import java.util.List;
 

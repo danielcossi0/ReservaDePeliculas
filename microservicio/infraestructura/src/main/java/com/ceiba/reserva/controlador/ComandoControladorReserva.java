@@ -1,10 +1,11 @@
-package com.ceiba.usuario.controlador;
+package com.ceiba.reserva.controlador;
 
 import com.ceiba.ComandoRespuesta;
-import com.ceiba.usuario.comando.ComandoReserva;
-import com.ceiba.usuario.comando.manejador.ManejadorActualizarReserva;
-import com.ceiba.usuario.comando.manejador.ManejadorCrearReserva;
-import com.ceiba.usuario.comando.manejador.ManejadorEliminarReserva;
+import com.ceiba.reserva.comando.ComandoReserva;
+import com.ceiba.reserva.comando.manejador.ManejadorActualizarReserva;
+import com.ceiba.reserva.comando.manejador.ManejadorCrearReserva;
+import com.ceiba.reserva.comando.manejador.ManejadorEliminarReserva;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

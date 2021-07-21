@@ -1,13 +1,13 @@
-package com.ceiba.usuario.controlador;
+package com.ceiba.reserva.controlador;
 
 import java.util.List;
 
-import com.ceiba.usuario.consulta.ManejadorListarReservas;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ceiba.reserva.consulta.ManejadorListarReservas;
 import com.ceiba.usuario.modelo.dto.DtoReserva;
 
 import io.swagger.annotations.Api;

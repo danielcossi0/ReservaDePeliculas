@@ -1,4 +1,4 @@
-package com.ceiba.usuario.controlador;
+package com.ceiba.reserva.controlador;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -9,7 +9,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.time.LocalDate;
 
 import com.ceiba.ApplicationMock;
-import com.ceiba.usuario.comando.ComandoReserva;
+import com.ceiba.reserva.comando.ComandoReserva;
+import com.ceiba.reserva.controlador.ComandoControladorReserva;
 import com.ceiba.usuario.servicio.testdatabuilder.ComandoReservaTestDataBuilder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
