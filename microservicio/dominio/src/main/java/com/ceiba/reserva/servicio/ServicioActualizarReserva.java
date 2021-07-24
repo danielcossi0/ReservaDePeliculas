@@ -21,7 +21,7 @@ public class ServicioActualizarReserva {
 	public void ejecutar(Reserva reserva) {
 		validarExistenciaPrevia(reserva);
 
-		reserva = validarFechaDeEntrega(reserva);
+		validarFechaDeEntrega(reserva);
 
 		this.repositorioReserva.actualizar(reserva);
 	}
