@@ -16,7 +16,6 @@ public class RepositorioReservaMysql implements RepositorioReserva {
 
 	private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 	private static final double PRECIO_POR_DIA_DE_RESERVA = 10000.0;
-	private static final double PRECIO_ADICIONAL_POR_DIA_DE_RESERVA = 15000.0;
 	private static final String ESTADO_PENDIENTE = "Pendiente";
 	private static final String ID_RESERVA = "idReserva";
 
@@ -70,26 +69,8 @@ public class RepositorioReservaMysql implements RepositorioReserva {
 
 	@Override
 	public void actualizar(Reserva reserva) {
-		Period diasAdicionales = reserva.getFechaDeReserva().plusDays(reserva.getDiasDeReserva())
-				.until(reserva.getFechaDeEntrega());
 
 		this.customNamedParameterJdbcTemplate.actualizar(reserva, sqlActualizar);
-
-		LocalDate fechaRealDeEntrega = reserva.getFechaDeEntrega();
-		LocalDate fechaDeEntregaEstimada = reserva.getFechaDeReserva().plusDays(reserva.getDiasDeReserva());
-
-		if (fechaRealDeEntrega.isAfter(fechaDeEntregaEstimada)) {
-
-			reserva.setPrecioCalculado(PRECIO_POR_DIA_DE_RESERVA * reserva.getDiasDeReserva()
-					+ PRECIO_ADICIONAL_POR_DIA_DE_RESERVA * diasAdicionales.getDays());
-
-			this.customNamedParameterJdbcTemplate.actualizar(reserva, sqlActualizar);
-
-		} else if (fechaRealDeEntrega.isBefore(fechaDeEntregaEstimada)) {
-			Period diasRealesDeReserva = reserva.getFechaDeReserva().until(reserva.getFechaDeEntrega());
-			reserva.setPrecioCalculado(diasRealesDeReserva.getDays() * PRECIO_POR_DIA_DE_RESERVA);
-			this.customNamedParameterJdbcTemplate.actualizar(reserva, sqlActualizar);
-		}
 
 	}
 
