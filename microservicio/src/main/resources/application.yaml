@@ -19,3 +19,4 @@ spring:
       password: Atenea1234
       hikari:
          poolName: pool
+
