@@ -5,8 +5,6 @@ import com.ceiba.infraestructura.jdbc.sqlstatement.SqlStatement;
 import com.ceiba.reserva.modelo.entidad.Reserva;
 import com.ceiba.reserva.puerto.repositorio.RepositorioReserva;
 
-import java.time.LocalDate;
-
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Repository;
 
@@ -14,7 +12,6 @@ import org.springframework.stereotype.Repository;
 public class RepositorioReservaMysql implements RepositorioReserva {
 
 	private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
-	private static final double PRECIO_POR_DIA_DE_RESERVA = 10000.0;
 	private static final String ESTADO_PENDIENTE = "Pendiente";
 	private static final String ID_RESERVA = "idReserva";
 
@@ -42,10 +39,6 @@ public class RepositorioReservaMysql implements RepositorioReserva {
 
 	@Override
 	public Long crear(Reserva reserva) {
-		reserva.setFechaDeReserva(LocalDate.now());
-		reserva.setPrecioCalculado(PRECIO_POR_DIA_DE_RESERVA * reserva.getDiasDeReserva());
-		reserva.setFechaDeEntrega(LocalDate.now().plusDays(reserva.getDiasDeReserva()));
-		reserva.setEstado(ESTADO_PENDIENTE);
 		return this.customNamedParameterJdbcTemplate.crear(reserva, sqlCrear);
 	}
 
